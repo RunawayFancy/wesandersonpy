@@ -178,15 +178,35 @@ The gallery above is a deterministic, hand-authored SVG made from the exact pack
 
 Five standalone scripts recreate the layout and color roles of the approved plotting cases using only independently invented CSV fixtures. They default to the reviewed data beneath `examples/data/`, validate alternate input schemas when paths are supplied, use `wesandersonpy` for every palette or colormap, and label their outputs as synthetic and non-experimental.
 
-| Plot case | Script | Synthetic data | Ignored first-pass output | Approved exhibit path |
+| Plot case | Script | Synthetic data | Reproducible staging output | Committed exhibit |
 |---|---|---|---|---|
-| Sequence schematic, time response, and population sweeps | [`examples/diagram_sequence_time_domain.py`](examples/diagram_sequence_time_domain.py) | [`examples/data/diagram_sequence/`](examples/data/diagram_sequence/) | `examples/figures/generated/diagram_sequence_time_domain.png` | `examples/figures/diagram_sequence_time_domain.png` |
-| Multi-parameter fidelity-style curves | [`examples/fidelity_multi_parameter.py`](examples/fidelity_multi_parameter.py) | [`examples/data/fidelity_multi_parameter/`](examples/data/fidelity_multi_parameter/) | `examples/figures/generated/fidelity_multi_parameter.png` | `examples/figures/fidelity_multi_parameter.png` |
-| Repeated iterations with opacity fading | [`examples/multiple_iterations_faded.py`](examples/multiple_iterations_faded.py) | [`examples/data/multiple_iterations/`](examples/data/multiple_iterations/) | `examples/figures/generated/multiple_iterations_faded.png` | `examples/figures/multiple_iterations_faded.png` |
-| Readout-calibration and Rabi composite | [`examples/readout_calibration_rabi_subplots.py`](examples/readout_calibration_rabi_subplots.py) | [`examples/data/readout_calibration_rabi/`](examples/data/readout_calibration_rabi/) | `examples/figures/generated/readout_calibration_rabi_subplots.png` | `examples/figures/readout_calibration_rabi_subplots.png` |
-| Scatter comparison with a highlighted illustrative trace | [`examples/scatter_with_simulation.py`](examples/scatter_with_simulation.py) | [`examples/data/scatter_simulation/`](examples/data/scatter_simulation/) | `examples/figures/generated/scatter_with_simulation.png` | `examples/figures/scatter_with_simulation.png` |
+| Sequence schematic, time response, and population sweeps | [`examples/diagram_sequence_time_domain.py`](examples/diagram_sequence_time_domain.py) | [`examples/data/diagram_sequence/`](examples/data/diagram_sequence/) | `examples/figures/generated/diagram_sequence_time_domain.png` | [PNG](examples/figures/diagram_sequence_time_domain.png) |
+| Multi-parameter fidelity-style curves | [`examples/fidelity_multi_parameter.py`](examples/fidelity_multi_parameter.py) | [`examples/data/fidelity_multi_parameter/`](examples/data/fidelity_multi_parameter/) | `examples/figures/generated/fidelity_multi_parameter.png` | [PNG](examples/figures/fidelity_multi_parameter.png) |
+| Repeated iterations with opacity fading | [`examples/multiple_iterations_faded.py`](examples/multiple_iterations_faded.py) | [`examples/data/multiple_iterations/`](examples/data/multiple_iterations/) | `examples/figures/generated/multiple_iterations_faded.png` | [PNG](examples/figures/multiple_iterations_faded.png) |
+| Readout-calibration and Rabi composite | [`examples/readout_calibration_rabi_subplots.py`](examples/readout_calibration_rabi_subplots.py) | [`examples/data/readout_calibration_rabi/`](examples/data/readout_calibration_rabi/) | `examples/figures/generated/readout_calibration_rabi_subplots.png` | [PNG](examples/figures/readout_calibration_rabi_subplots.png) |
+| Scatter comparison with a highlighted illustrative trace | [`examples/scatter_with_simulation.py`](examples/scatter_with_simulation.py) | [`examples/data/scatter_simulation/`](examples/data/scatter_simulation/) | `examples/figures/generated/scatter_with_simulation.png` | [PNG](examples/figures/scatter_with_simulation.png) |
 
-The example PNG exhibits have not been generated or approved yet, so none are embedded here. First-pass renders belong in the ignored `examples/figures/generated/` staging directory. A human maintainer must inspect each staged image for correctness and confidentiality; only after explicit approval should that image be copied or moved to its named committed exhibit path directly under `examples/figures/` and embedded in this README. The original visual references are not package assets and must not be copied into this README.
+These five exhibits were rendered from the bundled synthetic fixtures, independently checked against the intended plotting grammar, and approved by the human maintainer for inclusion. The committed PNGs contain no experimental data and remain reproducible from their linked scripts. Future first-pass renders still belong in the ignored `examples/figures/generated/` staging directory and require review before replacing these exhibits. The original visual references are not package assets and are not included here.
+
+### Sequence schematic, response, and population sweeps
+
+![Synthetic sequence schematic, time response, and population sweeps using coordinated wesandersonpy colors](examples/figures/diagram_sequence_time_domain.png)
+
+### Multi-parameter fidelity-style curves
+
+![Synthetic multi-parameter fidelity-style curves using a discrete Cavalcanti1 palette](examples/figures/fidelity_multi_parameter.png)
+
+### Repeated iterations with opacity fading
+
+![Synthetic repeated iteration data using navy, red, and light-blue palette roles with opacity fading](examples/figures/multiple_iterations_faded.png)
+
+### Readout-calibration and Rabi composite
+
+![Synthetic readout-calibration and Rabi composite using stable coral, teal, and muted-green state roles](examples/figures/readout_calibration_rabi_subplots.png)
+
+### Scatter comparison with highlighted simulation
+
+![Synthetic scatter comparison using warm simulation, dark experiment, and red highlighted-trace roles](examples/figures/scatter_with_simulation.png)
 
 After installing the example dependencies, the human rendering commands are:
 
