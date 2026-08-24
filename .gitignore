@@ -1,0 +1,49 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+
+# Environments and dependency tools
+.venv/
+venv/
+env/
+.python-version
+
+# Builds and packaging
+build/
+dist/
+*.egg-info/
+*.whl
+
+# Editors and operating systems
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.*
+
+# Local or potentially restricted inputs
+/plotting_example/
+/data/
+
+# Generated example outputs; human-approved exhibits may live directly in examples/figures.
+/examples/figures/generated/
+/examples/output/
+
+# Preserve the upstream checkout locally without creating an accidental gitlink.
+/reference/wesanderson-r/
+

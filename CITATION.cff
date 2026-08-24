@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use wesandersonpy, please cite the software and acknowledge the upstream R package."
+title: "wesandersonpy"
+type: software
+version: 0.1.0
+authors:
+  - name: "wesandersonpy contributors"
+license: MIT
+abstract: "Wes Anderson-inspired color palettes with first-class Matplotlib support."
+keywords:
+  - color palette
+  - matplotlib
+  - visualization
+references:
+  - type: software
+    title: "wesanderson: A Wes Anderson Palette Generator"
+    authors:
+      - family-names: Ram
+        given-names: Karthik
+        orcid: "https://orcid.org/0000-0002-0233-1757"
+    version: 0.3.7
+    url: "https://github.com/karthik/wesanderson"
+

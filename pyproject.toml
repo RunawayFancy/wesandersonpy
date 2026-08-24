@@ -1,0 +1,86 @@
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "wesandersonpy"
+version = "0.1.0"
+description = "Wes Anderson-inspired color palettes with first-class Matplotlib support."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+  { name = "wesandersonpy contributors" },
+]
+keywords = ["color", "colormap", "matplotlib", "palette", "visualization"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Topic :: Scientific/Engineering :: Visualization",
+  "Typing :: Typed",
+]
+dependencies = [
+  "matplotlib>=3.8,<4",
+]
+
+[project.optional-dependencies]
+examples = [
+  "numpy>=1.24",
+]
+dev = [
+  "build>=1.2",
+  "mypy>=1.10",
+  "numpy>=1.24",
+  "pre-commit>=3.7",
+  "pytest>=8",
+  "pytest-cov>=5",
+  "ruff>=0.6",
+  "twine>=5",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/wesandersonpy"]
+
+[tool.hatch.build.targets.sdist]
+exclude = [
+  "/.agents",
+  "/.vscode",
+  "/docs/agent-runs",
+  "/examples/figures/generated",
+  "/plotting_example",
+  "/reference",
+]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 88
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["B", "E", "F", "I", "UP"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+files = ["src/wesandersonpy"]
+
+[tool.pytest.ini_options]
+addopts = "--strict-config --strict-markers"
+testpaths = ["tests"]
+
+[tool.coverage.run]
+branch = true
+source = ["wesandersonpy"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+
