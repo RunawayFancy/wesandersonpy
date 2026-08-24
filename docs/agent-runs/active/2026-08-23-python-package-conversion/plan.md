@@ -167,6 +167,21 @@ The agent will not run these scripts. The human will run each documented command
 | T18 | Build and validate distributions and installed-wheel behavior in `wespy` | T15, human execution authorization | Completed: V07 blocked offline; host isolated build passed |
 | T19 | Reverify Twine, archives, and wheel behavior after the host's successful isolated build | T18/V07, host isolated build | Completed: V08 fail on sdist hygiene; wheel gates pass |
 | T20 | Diagnose static-quality failures without applying fixes | T17/V06 | Completed: V09 diagnosis |
+| T21 | Render and review diagram/iteration examples against their references | v007 authorization | Completed: T21 r01 findings |
+| T22 | Render and review fidelity/scatter examples against their references | v007 authorization | Completed: T22 r01 findings |
+| T23 | Render and review readout/Rabi example against its reference | v007 authorization | Completed: T23 r01 findings |
+| T24 | Revise diagram/iteration examples from baseline findings | T21 | Completed: T24 r01 |
+| T25 | Revise fidelity/scatter examples from baseline findings | T22 | Completed: T25 r01 |
+| T26 | Revise readout/Rabi example from baseline findings | T23 | Completed: T26 r01 |
+| T27 | Independently verify all revised plots and scoped quality gates | T24, T25, T26 | Completed: V10 pass |
+
+## Revised plotting-example outcome
+
+All five examples were first rendered unchanged into `examples/figures/generated/baseline/` and compared qualitatively with their corresponding authorized reference images. T21 through T23 recorded layout, hierarchy, semantic-color, contrast, and readability findings without changing code or inferring values. T24 through T26 then revised only the five example scripts, preserving every synthetic fixture and retaining visible non-experimental notices.
+
+The final role system uses package colors intentionally rather than as arbitrary decoration. The diagram combines strong state-specific colors with redundant markers and muted structural guides; faded iterations use navy, brick red, and light blue with opacity reserved for chronology; fidelity uses an explicit discrete `Cavalcanti1` mapping rather than sampling a continuous colormap for categories; scatter uses an `AsteroidCity2` warm simulation, dark experiment, and red highlight hierarchy; and readout/Rabi uses consistent coral, teal, and muted-green target roles in a landscape calibration-versus-dynamics composition. The readout script uses display-only smoothing through unchanged synthetic samples and does not create new observations or modify fixtures.
+
+T27 independently rendered all five scripts into `examples/figures/generated/final-review/`, inspected every generated/reference pair at original detail, and found no blocking overlap or clipping defects. Scoped Ruff lint and formatting checks passed, all 79 tests passed with the three previously documented Matplotlib deprecation warnings, and no hard-coded three-, six-, or eight-digit hexadecimal colors were present in the five scripts. V10 gives an exhibit-readiness pass subject to human aesthetic review and explicit approval before any generated PNG is promoted into the committed gallery or README.
 
 Task contracts are stored in `tasks/` beside this plan. T16 through T18 are assigned as shown for independent diagnosis; the host retains final synthesis and any later fix decisions.
 

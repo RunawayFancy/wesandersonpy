@@ -24,9 +24,7 @@ if TYPE_CHECKING:
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 DATA_DIR = SCRIPT_DIR / "data" / "scatter_simulation"
-DEFAULT_OUTPUT = (
-    SCRIPT_DIR / "figures" / "generated" / "scatter_with_simulation.png"
-)
+DEFAULT_OUTPUT = SCRIPT_DIR / "figures" / "generated" / "scatter_with_simulation.png"
 
 
 def load_rows(
@@ -51,7 +49,7 @@ def load_rows(
 
 
 def panel_label(ax: Axes, label: str) -> None:
-    ax.text(-0.14, 1.02, label, transform=ax.transAxes, fontsize=11, weight="bold")
+    ax.text(-0.14, 1.02, label, transform=ax.transAxes, fontsize=10, weight="bold")
 
 
 def draw_branch_panel(
@@ -61,7 +59,7 @@ def draw_branch_panel(
     source_colors: dict[str, str],
 ) -> None:
     markers = {"simulation": "o", "experiment": "D"}
-    sizes = {"simulation": 13, "experiment": 10}
+    sizes = {"simulation": 9, "experiment": 7}
     for branch in dict.fromkeys(row["branch"] for row in branches):
         for source in ("simulation", "experiment"):
             selected = [
@@ -76,15 +74,15 @@ def draw_branch_panel(
                 s=sizes[source],
                 marker=markers[source],
                 color=source_colors[source],
-                alpha=0.86,
+                alpha=0.9,
             )
     ax.scatter(
         [float(row["n_g"]) for row in outliers],
         [float(row["n_r_crit"]) for row in outliers],
-        s=10,
+        s=6,
         marker="D",
         color=source_colors["experiment"],
-        alpha=0.68,
+        alpha=0.78,
     )
 
     handles = [
@@ -93,6 +91,7 @@ def draw_branch_panel(
             [],
             linestyle="none",
             marker=markers[source],
+            markersize=4,
             color=source_colors[source],
             label=source.title(),
         )
@@ -104,6 +103,9 @@ def draw_branch_panel(
         loc="lower center",
         bbox_to_anchor=(0.5, 1.01),
         ncol=2,
+        fontsize=8.5,
+        handletextpad=0.45,
+        columnspacing=1.4,
     )
     ax.set(ylabel=r"$n_{r,\mathrm{crit}}$", ylim=(280, 1650))
     panel_label(ax, "(a)")
@@ -121,7 +123,7 @@ def draw_probability_panel(
     ax.scatter(
         [float(row["n_g"]) for row in simulation],
         [float(row["p0"]) for row in simulation],
-        s=14,
+        s=10,
         marker="o",
         color=source_colors["simulation"],
         label="Simulation",
@@ -129,17 +131,15 @@ def draw_probability_panel(
     ax.scatter(
         [float(row["n_g"]) for row in experiment],
         [float(row["p0"]) for row in experiment],
-        s=10,
+        s=7,
         marker="D",
         color=source_colors["experiment"],
-        alpha=0.72,
+        alpha=0.78,
         label="Experiment",
     )
     if panel == "b":
         highlight = [
-            row
-            for row in selected_panel
-            if row["source"] == "highlight_simulation"
+            row for row in selected_panel if row["source"] == "highlight_simulation"
         ]
         highlight.sort(key=lambda row: float(row["n_g"]))
         ax.plot(
@@ -149,17 +149,17 @@ def draw_probability_panel(
             linewidth=1.5,
         )
         ax.plot(
-            [0.075, 0.100],
+            [0.075, 0.099],
             [0.12, 0.12],
             color=source_colors["highlight_simulation"],
             linewidth=1.5,
         )
         ax.text(
-            0.105,
+            0.104,
             0.12,
-            "Highlighted illustrative trace",
+            "Highlighted synthetic trace",
             color=source_colors["highlight_simulation"],
-            fontsize=7,
+            fontsize=6.8,
             va="center",
         )
     else:
@@ -186,18 +186,18 @@ def build_figure(data_dir: Path = DATA_DIR) -> Figure:
         {"panel", "source", "replicate_id", "n_g", "p0", "data_origin"},
     )
 
-    palette = wes.get_palette("FantasticFox1")
+    palette = wes.get_palette("AsteroidCity2")
     source_colors = {
-        "simulation": palette[3],
-        "experiment": palette[2],
-        "highlight_simulation": palette[4],
+        "simulation": palette[5],
+        "experiment": palette[4],
+        "highlight_simulation": palette[0],
     }
     figure, axes = plt.subplots(
         3,
         1,
-        figsize=(6.5, 8.2),
+        figsize=(6.2, 7.4),
         sharex=True,
-        gridspec_kw={"height_ratios": (2.6, 1.0, 1.0), "hspace": 0.08},
+        gridspec_kw={"height_ratios": (2.6, 1.0, 1.0), "hspace": 0.18},
     )
     draw_branch_panel(axes[0], branches, outliers, source_colors)
     draw_probability_panel(axes[1], probabilities, "b", source_colors)
@@ -205,7 +205,7 @@ def build_figure(data_dir: Path = DATA_DIR) -> Figure:
     for ax in axes:
         ax.set_xlim(0, 0.25)
         ax.tick_params(direction="in", top=True, right=True)
-    axes[0].set_xlabel("$n_g$")
+    axes[0].set_xlabel("$n_g$", labelpad=3)
     axes[0].tick_params(labelbottom=True)
     axes[1].tick_params(labelbottom=False)
     axes[2].set_xlabel("$n_g$")
@@ -214,10 +214,10 @@ def build_figure(data_dir: Path = DATA_DIR) -> Figure:
         0.01,
         "Synthetic demonstration data: layer names do not imply measurement validity",
         ha="center",
-        fontsize=8,
+        fontsize=7.5,
         style="italic",
     )
-    figure.subplots_adjust(bottom=0.08, left=0.17, right=0.96, top=0.93)
+    figure.subplots_adjust(bottom=0.09, left=0.16, right=0.97, top=0.93)
     return figure
 
 

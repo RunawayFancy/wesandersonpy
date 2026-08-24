@@ -21,9 +21,7 @@ if TYPE_CHECKING:
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 DATA_DIR = SCRIPT_DIR / "data" / "fidelity_multi_parameter"
-DEFAULT_OUTPUT = (
-    SCRIPT_DIR / "figures" / "generated" / "fidelity_multi_parameter.png"
-)
+DEFAULT_OUTPUT = SCRIPT_DIR / "figures" / "generated" / "fidelity_multi_parameter.png"
 
 
 def load_rows(
@@ -62,28 +60,32 @@ def build_figure(data_dir: Path = DATA_DIR) -> Figure:
 
     parameter_order = (1, 2, 3, 4, 8)
     markers = {1: "o", 2: "s", 3: "v", 4: "^", 8: "o"}
-    colormap = wes.get_colormap("Darjeeling1", kind="continuous")
+    palette = wes.get_palette("Cavalcanti1")
     colors = {
-        parameter: colormap(index / (len(parameter_order) - 1))
-        for index, parameter in enumerate(parameter_order)
+        1: palette[4],
+        2: palette[1],
+        3: palette[2],
+        4: palette[0],
+        8: palette[3],
     }
 
-    figure, ax = plt.subplots(figsize=(5.7, 5.2))
+    figure, ax = plt.subplots(figsize=(5.4, 4.4))
     for parameter in parameter_order:
         selected = [row for row in curves if int(row["parameter_j"]) == parameter]
         x_values = [float(row["x_scaled"]) for row in selected]
         marker_values = [float(row["marker_fidelity"]) for row in selected]
         line_values = [float(row["line_fidelity"]) for row in selected]
         marker_face = "none" if parameter == 8 else colors[parameter]
-        ax.plot(x_values, line_values, color=colors[parameter], linewidth=1.1)
+        ax.plot(x_values, line_values, color=colors[parameter], linewidth=0.95)
         ax.plot(
             x_values,
             marker_values,
             linestyle="none",
             marker=markers[parameter],
-            markersize=5,
+            markersize=4.2,
             markerfacecolor=marker_face,
             markeredgecolor=colors[parameter],
+            markeredgewidth=0.9,
             label=f"$j={parameter}$",
         )
 
@@ -94,7 +96,7 @@ def build_figure(data_dir: Path = DATA_DIR) -> Figure:
             float(guide["x_end"]),
             color=colors[parameter],
             linestyle=":",
-            linewidth=1.2,
+            linewidth=0.95,
         )
 
     ax.set_xscale("log")
@@ -104,16 +106,23 @@ def build_figure(data_dir: Path = DATA_DIR) -> Figure:
         xlim=(0.055, 110),
         ylim=(-0.025, 1.025),
     )
-    ax.legend(frameon=False, loc="lower left")
+    ax.legend(
+        frameon=False,
+        loc="lower left",
+        fontsize=9,
+        labelspacing=0.25,
+        handletextpad=0.5,
+        borderpad=0.2,
+    )
     figure.text(
         0.5,
         0.015,
         "Synthetic demonstration data: not experimental measurements",
         ha="center",
-        fontsize=8,
+        fontsize=7.5,
         style="italic",
     )
-    figure.subplots_adjust(bottom=0.16, left=0.16, right=0.96, top=0.97)
+    figure.subplots_adjust(bottom=0.18, left=0.16, right=0.97, top=0.97)
     return figure
 
 

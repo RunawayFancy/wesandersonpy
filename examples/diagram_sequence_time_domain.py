@@ -57,11 +57,16 @@ def draw_panel_label(ax: Axes, label: str) -> None:
 def draw_sequence(
     ax: Axes,
     rows: Iterable[dict[str, str]],
-    colors: tuple[str, ...],
+    channel_colors: dict[str, str],
+    ink: str,
 ) -> None:
     channel_y = {"transmon": 1.0, "resonator": 0.0}
-    channel_colors = {"transmon": colors[0], "resonator": colors[4]}
-    ink = colors[3]
+    label_positions = {
+        "state_preparation": ("center", 0.16),
+        "spectroscopy": ("right", -0.18),
+        "stimulation": ("right", -0.25),
+        "measurement": ("center", 0.12),
+    }
 
     for channel, y_position in channel_y.items():
         color = channel_colors[channel]
@@ -92,12 +97,22 @@ def draw_sequence(
             alpha=0.35 if filled else 1.0,
         )
         ax.add_patch(pulse)
+        placement, offset = label_positions[row["event"]]
+        if placement == "right":
+            label_x = end + 0.12
+            label_y = baseline + amplitude + offset
+            horizontal_alignment = "left"
+        else:
+            label_x = (start + end) / 2
+            label_y = baseline + amplitude + offset
+            horizontal_alignment = "center"
+        label_color = ink if row["channel"] == "transmon" else color
         ax.text(
-            (start + end) / 2,
-            baseline + amplitude + 0.12,
+            label_x,
+            label_y,
             row["label"],
-            color=ink,
-            ha="center",
+            color=label_color,
+            ha=horizontal_alignment,
             va="bottom",
             fontsize=8,
         )
@@ -111,17 +126,23 @@ def draw_sequence(
 def draw_time_response(
     ax: Axes,
     rows: list[dict[str, str]],
-    colors: tuple[str, ...],
+    data_color: str,
+    guide_color: str,
 ) -> None:
     time = [float(row["time_us"]) for row in rows]
     data = [float(row["data_normalized"]) for row in rows]
     comparison = [float(row["fit_normalized"]) for row in rows]
-    data_color = colors[4]
-
-    ax.plot(time, comparison, color=data_color, linewidth=7, alpha=0.22, label="Guide")
+    ax.plot(
+        time,
+        comparison,
+        color=data_color,
+        linewidth=3.0,
+        alpha=0.30,
+        label="Guide",
+    )
     ax.plot(time, data, "o", color=data_color, markersize=3.4, label="Synthetic points")
     for guide in (0.0, 2.0):
-        ax.axvline(guide, color=colors[2], linewidth=0.9, alpha=0.7)
+        ax.axvline(guide, color=guide_color, linewidth=0.8, alpha=0.75)
     ax.set(
         xlabel="Time, $t$ (microseconds)",
         ylabel="Normalized response",
@@ -170,8 +191,18 @@ def draw_population_panel(
     state_colors: dict[str, str],
     panel_label: str,
     show_legend: bool,
+    guide_color: str,
+    y_limit: tuple[float, float],
 ) -> None:
     selected = [row for row in rows if row["preparation"] == preparation]
+    state_markers = {"P1": "o", "P2": "s", "P7": "^", "P8": "D", "P9plus": "v"}
+    state_labels = {
+        "P1": r"$|1\rangle$",
+        "P2": r"$|2\rangle$",
+        "P7": r"$|7\rangle$",
+        "P8": r"$|8\rangle$",
+        "P9plus": r"$|9+\rangle$",
+    }
     for state, color in state_colors.items():
         state_rows = [row for row in selected if row["state"] == state]
         x_values = [float(row["nbar_r_max"]) for row in state_rows]
@@ -179,15 +210,17 @@ def draw_population_panel(
         ax.plot(
             x_values,
             y_values,
-            "o",
+            state_markers[state],
             color=color,
             markersize=3.2,
-            label=f"${state}$",
+            markerfacecolor="none" if state == "P8" else color,
+            markeredgewidth=0.8,
+            label=state_labels[state],
         )
 
-    ax.axvline(900, color=state_colors["P9plus"], linestyle=":", linewidth=1.0)
+    ax.axvline(900, color=guide_color, linestyle=":", linewidth=0.9)
     ax.set_xlim(-80, 2900)
-    ax.set_ylim(-0.025, 1.0)
+    ax.set_ylim(*y_limit)
     ax.set_ylabel("Population")
     draw_panel_label(ax, panel_label)
     if show_legend:
@@ -199,7 +232,7 @@ def draw_population_panel(
             borderaxespad=0,
             fontsize=8,
         )
-        inset = ax.inset_axes([0.08, 0.10, 0.31, 0.29])
+        inset = ax.inset_axes([0.08, 0.16, 0.23, 0.23])
         for state, color in state_colors.items():
             if state == "P1":
                 continue
@@ -207,11 +240,18 @@ def draw_population_panel(
             inset.plot(
                 [float(row["nbar_r_max"]) for row in state_rows],
                 [float(row["population"]) for row in state_rows],
-                "o",
+                state_markers[state],
                 color=color,
-                markersize=2,
+                markersize=2.2,
+                markerfacecolor="none" if state == "P8" else color,
+                markeredgewidth=0.6,
             )
-        inset.set(xlim=(-80, 2900), ylim=(-0.002, 0.055))
+        inset.set(
+            xlim=(-50, 1050),
+            ylim=(-0.002, 0.055),
+            xticks=(0, 500, 1000),
+            yticks=(0, 0.025, 0.05),
+        )
         inset.tick_params(labelsize=6)
         mark_inset(
             ax,
@@ -219,7 +259,7 @@ def draw_population_panel(
             loc1=2,
             loc2=4,
             fc="none",
-            ec=state_colors["P2"],
+            ec=guide_color,
             linewidth=0.7,
         )
 
@@ -247,34 +287,53 @@ def build_figure(data_dir: Path = DATA_DIR) -> Figure:
     )
     time_rows = load_rows(
         data_dir,
-        "time_domain_response.csv", {"time_us", "data_normalized", "fit_normalized"}
+        "time_domain_response.csv",
+        {"time_us", "data_normalized", "fit_normalized"},
     )
     population_rows = load_rows(
         data_dir,
-        "population_sweeps.csv", {"preparation", "state", "nbar_r_max", "population"}
+        "population_sweeps.csv",
+        {"preparation", "state", "nbar_r_max", "population"},
     )
 
-    colors = wes.get_palette("Zissou1")
+    zissou = wes.get_palette("Zissou1")
+    ink = wes.get_palette("Moonrise1")[-1]
+    guide_color = wes.get_palette("Moonrise2")[2]
+    channel_colors = {"transmon": zissou[0], "resonator": zissou[-1]}
     state_colors = {
-        "P1": colors[4],
-        "P2": colors[0],
-        "P7": colors[1],
-        "P8": colors[3],
-        "P9plus": colors[2],
+        "P1": zissou[-1],
+        "P2": ink,
+        "P7": zissou[1],
+        "P8": wes.get_palette("Royal1")[0],
+        "P9plus": zissou[2],
     }
     figure, axes = plt.subplots(
         4,
         1,
-        figsize=(7.2, 10.2),
-        gridspec_kw={"height_ratios": (0.8, 1.0, 1.45, 1.45), "hspace": 0.34},
+        figsize=(7.2, 9.6),
+        gridspec_kw={"height_ratios": (0.70, 0.78, 1.15, 0.72), "hspace": 0.46},
     )
-    draw_sequence(axes[0], sequence_rows, colors)
-    draw_time_response(axes[1], time_rows, colors)
+    draw_sequence(axes[0], sequence_rows, channel_colors, ink)
+    draw_time_response(axes[1], time_rows, zissou[-1], guide_color)
     draw_population_panel(
-        axes[2], population_rows, "state_1", state_colors, "(c)", True
+        axes[2],
+        population_rows,
+        "state_1",
+        state_colors,
+        "(c)",
+        True,
+        guide_color,
+        (-0.025, 1.0),
     )
     draw_population_panel(
-        axes[3], population_rows, "state_7", state_colors, "(d)", False
+        axes[3],
+        population_rows,
+        "state_7",
+        state_colors,
+        "(d)",
+        False,
+        guide_color,
+        (-0.02, 0.48),
     )
     axes[2].tick_params(labelbottom=False)
     axes[3].set_xlabel(r"Illustrative control parameter, $\bar{n}_{r,\max}$")

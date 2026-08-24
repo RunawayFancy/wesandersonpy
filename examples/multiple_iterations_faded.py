@@ -23,9 +23,7 @@ if TYPE_CHECKING:
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 DATA_PATH = SCRIPT_DIR / "data" / "multiple_iterations" / "iteration_populations.csv"
-DEFAULT_OUTPUT = (
-    SCRIPT_DIR / "figures" / "generated" / "multiple_iterations_faded.png"
-)
+DEFAULT_OUTPUT = SCRIPT_DIR / "figures" / "generated" / "multiple_iterations_faded.png"
 REQUIRED_COLUMNS = {"iteration_id", "fade_rank", "series", "nbar_r_max", "population"}
 
 
@@ -46,9 +44,14 @@ def load_rows(input_path: Path) -> list[dict[str, str]]:
 def build_figure(input_path: Path = DATA_PATH) -> Figure:
     """Build a deterministic marker-only figure with chronology encoded by alpha."""
     rows = load_rows(input_path)
-    palette = wes.get_palette("Zissou1")
-    series_colors = {"P0": palette[0], "P1": palette[1], "P7": palette[3]}
-    alpha_by_rank = {1: 0.16, 2: 0.30, 3: 0.52, 4: 0.90}
+    series_colors = {
+        "P0": wes.get_palette("BottleRocket2")[2],
+        "P1": wes.get_palette("Royal1")[1],
+        "P7": wes.get_palette("Zissou1")[1],
+    }
+    series_labels = {"P0": r"$P_0$", "P1": r"$P_1$", "P7": r"$P_7$"}
+    guide_color = wes.get_palette("Moonrise2")[2]
+    alpha_by_rank = {1: 0.25, 2: 0.42, 3: 0.63, 4: 0.92}
 
     figure, ax = plt.subplots(figsize=(8.4, 3.3))
     for fade_rank in sorted({int(row["fade_rank"]) for row in rows}):
@@ -63,14 +66,29 @@ def build_figure(input_path: Path = DATA_PATH) -> Figure:
                 [float(row["population"]) for row in selected],
                 linestyle="none",
                 marker="o",
-                markersize=4.2,
+                markersize=3.7,
                 color=color,
                 alpha=alpha_by_rank[fade_rank],
+                zorder=fade_rank,
             )
 
-    ax.axvline(900, color=palette[4], linestyle="--", linewidth=1.2, alpha=0.8)
+    ax.axvline(
+        900,
+        color=guide_color,
+        linestyle="--",
+        linewidth=1.0,
+        alpha=0.85,
+        zorder=0,
+    )
     handles = [
-        Line2D([], [], linestyle="none", marker="o", color=color, label=f"${series}$")
+        Line2D(
+            [],
+            [],
+            linestyle="none",
+            marker="o",
+            color=color,
+            label=series_labels[series],
+        )
         for series, color in series_colors.items()
     ]
     ax.legend(handles=handles, frameon=False, loc="upper right", ncol=3)
@@ -80,7 +98,7 @@ def build_figure(input_path: Path = DATA_PATH) -> Figure:
         xlim=(-80, 2890),
         ylim=(-0.04, 0.94),
     )
-    ax.text(-0.08, 1.02, "(a)", transform=ax.transAxes, fontsize=11, weight="bold")
+    ax.text(-0.055, 1.01, "(a)", transform=ax.transAxes, fontsize=10, weight="bold")
     figure.text(
         0.5,
         0.015,
