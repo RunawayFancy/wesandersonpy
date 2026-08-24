@@ -1,0 +1,6 @@
+parameter_j,x_start,x_end,asymptote_fidelity,data_origin
+1,15,100,0.36,synthetic_non_experimental
+2,15,100,0.12,synthetic_non_experimental
+3,15,100,0.060,synthetic_non_experimental
+4,15,100,0.025,synthetic_non_experimental
+8,15,100,0.008,synthetic_non_experimental

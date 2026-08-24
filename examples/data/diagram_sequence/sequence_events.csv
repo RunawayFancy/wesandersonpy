@@ -1,0 +1,5 @@
+channel,event,start_arb,end_arb,amplitude_arb,render_role,label
+transmon,state_preparation,0.35,0.58,0.95,outline_pulse,State prep.
+transmon,spectroscopy,1.85,2.10,0.95,filled_pulse,Spectroscopy pulse
+resonator,stimulation,0.55,2.20,0.72,filled_block,Stimulation pulse
+resonator,measurement,11.70,13.35,0.34,filled_block,Measurement

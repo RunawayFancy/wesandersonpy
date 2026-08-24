@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1870" viewBox="0 0 1200 1870" role="img" aria-labelledby="title description">
+  <title id="title">wesandersonpy palette gallery</title>
+  <desc id="description">All 22 canonical wesandersonpy palettes, grouped by the film that inspired each palette.</desc>
+  <rect width="1200" height="1870" fill="#FAF7F0"/>
+  <text x="48" y="55" fill="#24281A" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700">wesandersonpy palette gallery</text>
+  <text x="48" y="82" fill="#5F5647" font-family="Arial, Helvetica, sans-serif" font-size="16">22 canonical palettes • version 0.1.0</text>
+
+  <g font-family="Arial, Helvetica, sans-serif">
+    <g aria-label="Bottle Rocket palettes">
+      <rect x="36" y="104" width="1128" height="32" rx="5" fill="#E9E3D7"/>
+      <text x="48" y="126" fill="#24281A" font-size="17" font-weight="700">Bottle Rocket</text>
+      <text x="48" y="172" fill="#24281A" font-size="16">BottleRocket1</text>
+      <g aria-label="BottleRocket1: #A42820, #5F5647, #9B110E, #3F5151, #4E2A1E, #550307, #0C1707">
+        <rect x="270" y="144" width="125" height="44" fill="#A42820"><title>#A42820</title></rect><rect x="395" y="144" width="125" height="44" fill="#5F5647"><title>#5F5647</title></rect><rect x="520" y="144" width="125" height="44" fill="#9B110E"><title>#9B110E</title></rect><rect x="645" y="144" width="125" height="44" fill="#3F5151"><title>#3F5151</title></rect><rect x="770" y="144" width="125" height="44" fill="#4E2A1E"><title>#4E2A1E</title></rect><rect x="895" y="144" width="125" height="44" fill="#550307"><title>#550307</title></rect><rect x="1020" y="144" width="125" height="44" fill="#0C1707"><title>#0C1707</title></rect>
+      </g>
+      <text x="48" y="224" fill="#24281A" font-size="16">BottleRocket2</text>
+      <g aria-label="BottleRocket2: #FAD510, #CB2314, #273046, #354823, #1E1E1E">
+        <rect x="270" y="196" width="175" height="44" fill="#FAD510"><title>#FAD510</title></rect><rect x="445" y="196" width="175" height="44" fill="#CB2314"><title>#CB2314</title></rect><rect x="620" y="196" width="175" height="44" fill="#273046"><title>#273046</title></rect><rect x="795" y="196" width="175" height="44" fill="#354823"><title>#354823</title></rect><rect x="970" y="196" width="175" height="44" fill="#1E1E1E"><title>#1E1E1E</title></rect>
+      </g>
+    </g>
+
+    <g aria-label="Rushmore palettes">
+      <rect x="36" y="252" width="1128" height="32" rx="5" fill="#E9E3D7"/>
+      <text x="48" y="274" fill="#24281A" font-size="17" font-weight="700">Rushmore</text>
+      <text x="48" y="320" fill="#24281A" font-size="16">Rushmore1</text>
+      <g aria-label="Rushmore1: #E1BD6D, #EABE94, #0B775E, #35274A, #F2300F">
+        <rect x="270" y="292" width="175" height="44" fill="#E1BD6D"><title>#E1BD6D</title></rect><rect x="445" y="292" width="175" height="44" fill="#EABE94"><title>#EABE94</title></rect><rect x="620" y="292" width="175" height="44" fill="#0B775E"><title>#0B775E</title></rect><rect x="795" y="292" width="175" height="44" fill="#35274A"><title>#35274A</title></rect><rect x="970" y="292" width="175" height="44" fill="#F2300F"><title>#F2300F</title></rect>
+      </g>
+    </g>
+
+    <g aria-label="The Royal Tenenbaums palettes">
+      <rect x="36" y="348" width="1128" height="32" rx="5" fill="#E9E3D7"/>
+      <text x="48" y="370" fill="#24281A" font-size="17" font-weight="700">The Royal Tenenbaums</text>
+      <text x="48" y="416" fill="#24281A" font-size="16">Royal1</text>
+      <g aria-label="Royal1: #899DA4, #C93312, #FAEFD1, #DC863B">
+        <rect x="270" y="388" width="219" height="44" fill="#899DA4"><title>#899DA4</title></rect><rect x="489" y="388" width="219" height="44" fill="#C93312"><title>#C93312</title></rect><rect x="708" y="388" width="219" height="44" fill="#FAEFD1"><title>#FAEFD1</title></rect><rect x="927" y="388" width="218" height="44" fill="#DC863B"><title>#DC863B</title></rect>
+      </g>
+      <text x="48" y="468" fill="#24281A" font-size="16">Royal2</text>
+      <g aria-label="Royal2: #9A8822, #F5CDB4, #F8AFA8, #FDDDA0, #74A089">
+        <rect x="270" y="440" width="175" height="44" fill="#9A8822"><title>#9A8822</title></rect><rect x="445" y="440" width="175" height="44" fill="#F5CDB4"><title>#F5CDB4</title></rect><rect x="620" y="440" width="175" height="44" fill="#F8AFA8"><title>#F8AFA8</title></rect><rect x="795" y="440" width="175" height="44" fill="#FDDDA0"><title>#FDDDA0</title></rect><rect x="970" y="440" width="175" height="44" fill="#74A089"><title>#74A089</title></rect>
+      </g>
+    </g>
+
+    <g aria-label="The Life Aquatic with Steve Zissou palettes">
+      <rect x="36" y="496" width="1128" height="32" rx="5" fill="#E9E3D7"/>
+      <text x="48" y="518" fill="#24281A" font-size="17" font-weight="700">The Life Aquatic with Steve Zissou</text>
+      <text x="48" y="564" fill="#24281A" font-size="16">Zissou1</text>
+      <g aria-label="Zissou1: #3B9AB2, #78B7C5, #EBCC2A, #E1AF00, #F21A00">
+        <rect x="270" y="536" width="175" height="44" fill="#3B9AB2"><title>#3B9AB2</title></rect><rect x="445" y="536" width="175" height="44" fill="#78B7C5"><title>#78B7C5</title></rect><rect x="620" y="536" width="175" height="44" fill="#EBCC2A"><title>#EBCC2A</title></rect><rect x="795" y="536" width="175" height="44" fill="#E1AF00"><title>#E1AF00</title></rect><rect x="970" y="536" width="175" height="44" fill="#F21A00"><title>#F21A00</title></rect>
+      </g>
+    </g>
+
+    <g aria-label="The Darjeeling Limited palettes">
+      <rect x="36" y="592" width="1128" height="32" rx="5" fill="#E9E3D7"/>
+      <text x="48" y="614" fill="#24281A" font-size="17" font-weight="700">The Darjeeling Limited</text>
+      <text x="48" y="660" fill="#24281A" font-size="16">Darjeeling1</text>
+      <g aria-label="Darjeeling1: #FF0000, #00A08A, #F2AD00, #F98400, #5BBCD6">
+        <rect x="270" y="632" width="175" height="44" fill="#FF0000"><title>#FF0000</title></rect><rect x="445" y="632" width="175" height="44" fill="#00A08A"><title>#00A08A</title></rect><rect x="620" y="632" width="175" height="44" fill="#F2AD00"><title>#F2AD00</title></rect><rect x="795" y="632" width="175" height="44" fill="#F98400"><title>#F98400</title></rect><rect x="970" y="632" width="175" height="44" fill="#5BBCD6"><title>#5BBCD6</title></rect>
+      </g>
+      <text x="48" y="712" fill="#24281A" font-size="16">Darjeeling2</text>
+      <g aria-label="Darjeeling2: #ECCBAE, #046C9A, #D69C4E, #ABDDDE, #000000">
+        <rect x="270" y="684" width="175" height="44" fill="#ECCBAE"><title>#ECCBAE</title></rect><rect x="445" y="684" width="175" height="44" fill="#046C9A"><title>#046C9A</title></rect><rect x="620" y="684" width="175" height="44" fill="#D69C4E"><title>#D69C4E</title></rect><rect x="795" y="684" width="175" height="44" fill="#ABDDDE"><title>#ABDDDE</title></rect><rect x="970" y="684" width="175" height="44" fill="#000000"><title>#000000</title></rect>
+      </g>
+    </g>
+
+    <g aria-label="Hotel Chevalier palettes">
+      <rect x="36" y="740" width="1128" height="32" rx="5" fill="#E9E3D7"/>
+      <text x="48" y="762" fill="#24281A" font-size="17" font-weight="700">Hotel Chevalier</text>
+      <text x="48" y="808" fill="#24281A" font-size="16">Chevalier1</text>
+      <g aria-label="Chevalier1: #446455, #FDD262, #D3DDDC, #C7B19C">
+        <rect x="270" y="780" width="219" height="44" fill="#446455"><title>#446455</title></rect><rect x="489" y="780" width="219" height="44" fill="#FDD262"><title>#FDD262</title></rect><rect x="708" y="780" width="219" height="44" fill="#D3DDDC"><title>#D3DDDC</title></rect><rect x="927" y="780" width="218" height="44" fill="#C7B19C"><title>#C7B19C</title></rect>
+      </g>
+    </g>
+
+    <g aria-label="Fantastic Mr. Fox palettes">
+      <rect x="36" y="836" width="1128" height="32" rx="5" fill="#E9E3D7"/>
+      <text x="48" y="858" fill="#24281A" font-size="17" font-weight="700">Fantastic Mr. Fox</text>
+      <text x="48" y="904" fill="#24281A" font-size="16">FantasticFox1</text>
+      <g aria-label="FantasticFox1: #DD8D29, #E2D200, #46ACC8, #E58601, #B40F20">
+        <rect x="270" y="876" width="175" height="44" fill="#DD8D29"><title>#DD8D29</title></rect><rect x="445" y="876" width="175" height="44" fill="#E2D200"><title>#E2D200</title></rect><rect x="620" y="876" width="175" height="44" fill="#46ACC8"><title>#46ACC8</title></rect><rect x="795" y="876" width="175" height="44" fill="#E58601"><title>#E58601</title></rect><rect x="970" y="876" width="175" height="44" fill="#B40F20"><title>#B40F20</title></rect>
+      </g>
+    </g>
+
+    <g aria-label="Moonrise Kingdom palettes">
+      <rect x="36" y="932" width="1128" height="32" rx="5" fill="#E9E3D7"/>
+      <text x="48" y="954" fill="#24281A" font-size="17" font-weight="700">Moonrise Kingdom</text>
+      <text x="48" y="1000" fill="#24281A" font-size="16">Moonrise1</text>
+      <g aria-label="Moonrise1: #F3DF6C, #CEAB07, #D5D5D3, #24281A">
+        <rect x="270" y="972" width="219" height="44" fill="#F3DF6C"><title>#F3DF6C</title></rect><rect x="489" y="972" width="219" height="44" fill="#CEAB07"><title>#CEAB07</title></rect><rect x="708" y="972" width="219" height="44" fill="#D5D5D3"><title>#D5D5D3</title></rect><rect x="927" y="972" width="218" height="44" fill="#24281A"><title>#24281A</title></rect>
+      </g>
+      <text x="48" y="1052" fill="#24281A" font-size="16">Moonrise2</text>
+      <g aria-label="Moonrise2: #798E87, #C27D38, #CCC591, #29211F">
+        <rect x="270" y="1024" width="219" height="44" fill="#798E87"><title>#798E87</title></rect><rect x="489" y="1024" width="219" height="44" fill="#C27D38"><title>#C27D38</title></rect><rect x="708" y="1024" width="219" height="44" fill="#CCC591"><title>#CCC591</title></rect><rect x="927" y="1024" width="218" height="44" fill="#29211F"><title>#29211F</title></rect>
+      </g>
+      <text x="48" y="1104" fill="#24281A" font-size="16">Moonrise3</text>
+      <g aria-label="Moonrise3: #85D4E3, #F4B5BD, #9C964A, #CDC08C, #FAD77B">
+        <rect x="270" y="1076" width="175" height="44" fill="#85D4E3"><title>#85D4E3</title></rect><rect x="445" y="1076" width="175" height="44" fill="#F4B5BD"><title>#F4B5BD</title></rect><rect x="620" y="1076" width="175" height="44" fill="#9C964A"><title>#9C964A</title></rect><rect x="795" y="1076" width="175" height="44" fill="#CDC08C"><title>#CDC08C</title></rect><rect x="970" y="1076" width="175" height="44" fill="#FAD77B"><title>#FAD77B</title></rect>
+      </g>
+    </g>
+
+    <g aria-label="Castello Cavalcanti palettes">
+      <rect x="36" y="1132" width="1128" height="32" rx="5" fill="#E9E3D7"/>
+      <text x="48" y="1154" fill="#24281A" font-size="17" font-weight="700">Castello Cavalcanti</text>
+      <text x="48" y="1200" fill="#24281A" font-size="16">Cavalcanti1</text>
+      <g aria-label="Cavalcanti1: #D8B70A, #02401B, #A2A475, #81A88D, #972D15">
+        <rect x="270" y="1172" width="175" height="44" fill="#D8B70A"><title>#D8B70A</title></rect><rect x="445" y="1172" width="175" height="44" fill="#02401B"><title>#02401B</title></rect><rect x="620" y="1172" width="175" height="44" fill="#A2A475"><title>#A2A475</title></rect><rect x="795" y="1172" width="175" height="44" fill="#81A88D"><title>#81A88D</title></rect><rect x="970" y="1172" width="175" height="44" fill="#972D15"><title>#972D15</title></rect>
+      </g>
+    </g>
+
+    <g aria-label="The Grand Budapest Hotel palettes">
+      <rect x="36" y="1228" width="1128" height="32" rx="5" fill="#E9E3D7"/>
+      <text x="48" y="1250" fill="#24281A" font-size="17" font-weight="700">The Grand Budapest Hotel</text>
+      <text x="48" y="1296" fill="#24281A" font-size="16">GrandBudapest1</text>
+      <g aria-label="GrandBudapest1: #F1BB7B, #FD6467, #5B1A18, #D67236">
+        <rect x="270" y="1268" width="219" height="44" fill="#F1BB7B"><title>#F1BB7B</title></rect><rect x="489" y="1268" width="219" height="44" fill="#FD6467"><title>#FD6467</title></rect><rect x="708" y="1268" width="219" height="44" fill="#5B1A18"><title>#5B1A18</title></rect><rect x="927" y="1268" width="218" height="44" fill="#D67236"><title>#D67236</title></rect>
+      </g>
+      <text x="48" y="1348" fill="#24281A" font-size="16">GrandBudapest2</text>
+      <g aria-label="GrandBudapest2: #E6A0C4, #C6CDF7, #D8A499, #7294D4">
+        <rect x="270" y="1320" width="219" height="44" fill="#E6A0C4"><title>#E6A0C4</title></rect><rect x="489" y="1320" width="219" height="44" fill="#C6CDF7"><title>#C6CDF7</title></rect><rect x="708" y="1320" width="219" height="44" fill="#D8A499"><title>#D8A499</title></rect><rect x="927" y="1320" width="218" height="44" fill="#7294D4"><title>#7294D4</title></rect>
+      </g>
+    </g>
+
+    <g aria-label="Isle of Dogs palettes">
+      <rect x="36" y="1376" width="1128" height="32" rx="5" fill="#E9E3D7"/>
+      <text x="48" y="1398" fill="#24281A" font-size="17" font-weight="700">Isle of Dogs</text>
+      <text x="48" y="1444" fill="#24281A" font-size="16">IsleofDogs1</text>
+      <g aria-label="IsleofDogs1: #9986A5, #79402E, #CCBA72, #0F0D0E, #D9D0D3, #8D8680">
+        <rect x="270" y="1416" width="146" height="44" fill="#9986A5"><title>#9986A5</title></rect><rect x="416" y="1416" width="146" height="44" fill="#79402E"><title>#79402E</title></rect><rect x="562" y="1416" width="146" height="44" fill="#CCBA72"><title>#CCBA72</title></rect><rect x="708" y="1416" width="146" height="44" fill="#0F0D0E"><title>#0F0D0E</title></rect><rect x="854" y="1416" width="146" height="44" fill="#D9D0D3"><title>#D9D0D3</title></rect><rect x="1000" y="1416" width="145" height="44" fill="#8D8680"><title>#8D8680</title></rect>
+      </g>
+      <text x="48" y="1496" fill="#24281A" font-size="16">IsleofDogs2</text>
+      <g aria-label="IsleofDogs2: #EAD3BF, #AA9486, #B6854D, #39312F, #1C1718">
+        <rect x="270" y="1468" width="175" height="44" fill="#EAD3BF"><title>#EAD3BF</title></rect><rect x="445" y="1468" width="175" height="44" fill="#AA9486"><title>#AA9486</title></rect><rect x="620" y="1468" width="175" height="44" fill="#B6854D"><title>#B6854D</title></rect><rect x="795" y="1468" width="175" height="44" fill="#39312F"><title>#39312F</title></rect><rect x="970" y="1468" width="175" height="44" fill="#1C1718"><title>#1C1718</title></rect>
+      </g>
+    </g>
+
+    <g aria-label="The French Dispatch palettes">
+      <rect x="36" y="1524" width="1128" height="32" rx="5" fill="#E9E3D7"/>
+      <text x="48" y="1546" fill="#24281A" font-size="17" font-weight="700">The French Dispatch</text>
+      <text x="48" y="1592" fill="#24281A" font-size="16">FrenchDispatch</text>
+      <g aria-label="FrenchDispatch: #90D4CC, #BD3027, #B0AFA2, #7FC0C6, #9D9C85">
+        <rect x="270" y="1564" width="175" height="44" fill="#90D4CC"><title>#90D4CC</title></rect><rect x="445" y="1564" width="175" height="44" fill="#BD3027"><title>#BD3027</title></rect><rect x="620" y="1564" width="175" height="44" fill="#B0AFA2"><title>#B0AFA2</title></rect><rect x="795" y="1564" width="175" height="44" fill="#7FC0C6"><title>#7FC0C6</title></rect><rect x="970" y="1564" width="175" height="44" fill="#9D9C85"><title>#9D9C85</title></rect>
+      </g>
+    </g>
+
+    <g aria-label="Asteroid City palettes">
+      <rect x="36" y="1620" width="1128" height="32" rx="5" fill="#E9E3D7"/>
+      <text x="48" y="1642" fill="#24281A" font-size="17" font-weight="700">Asteroid City</text>
+      <text x="48" y="1688" fill="#24281A" font-size="16">AsteroidCity1</text>
+      <g aria-label="AsteroidCity1: #0A9F9D, #CEB175, #E54E21, #6C8645, #C18748">
+        <rect x="270" y="1660" width="175" height="44" fill="#0A9F9D"><title>#0A9F9D</title></rect><rect x="445" y="1660" width="175" height="44" fill="#CEB175"><title>#CEB175</title></rect><rect x="620" y="1660" width="175" height="44" fill="#E54E21"><title>#E54E21</title></rect><rect x="795" y="1660" width="175" height="44" fill="#6C8645"><title>#6C8645</title></rect><rect x="970" y="1660" width="175" height="44" fill="#C18748"><title>#C18748</title></rect>
+      </g>
+      <text x="48" y="1740" fill="#24281A" font-size="16">AsteroidCity2</text>
+      <g aria-label="AsteroidCity2: #C52E19, #AC9765, #54D8B1, #b67c3b, #175149, #AF4E24">
+        <rect x="270" y="1712" width="146" height="44" fill="#C52E19"><title>#C52E19</title></rect><rect x="416" y="1712" width="146" height="44" fill="#AC9765"><title>#AC9765</title></rect><rect x="562" y="1712" width="146" height="44" fill="#54D8B1"><title>#54D8B1</title></rect><rect x="708" y="1712" width="146" height="44" fill="#b67c3b"><title>#b67c3b</title></rect><rect x="854" y="1712" width="146" height="44" fill="#175149"><title>#175149</title></rect><rect x="1000" y="1712" width="145" height="44" fill="#AF4E24"><title>#AF4E24</title></rect>
+      </g>
+      <text x="48" y="1792" fill="#24281A" font-size="16">AsteroidCity3</text>
+      <g aria-label="AsteroidCity3: #FBA72A, #D3D4D8, #CB7A5C, #5785C1">
+        <rect x="270" y="1764" width="219" height="44" fill="#FBA72A"><title>#FBA72A</title></rect><rect x="489" y="1764" width="219" height="44" fill="#D3D4D8"><title>#D3D4D8</title></rect><rect x="708" y="1764" width="219" height="44" fill="#CB7A5C"><title>#CB7A5C</title></rect><rect x="927" y="1764" width="218" height="44" fill="#5785C1"><title>#5785C1</title></rect>
+      </g>
+    </g>
+  </g>
+  <text x="48" y="1842" fill="#5F5647" font-family="Arial, Helvetica, sans-serif" font-size="14">Canonical source colors; continuous maps interpolate between these stops.</text>
+</svg>
