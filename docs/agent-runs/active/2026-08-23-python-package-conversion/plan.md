@@ -2,7 +2,7 @@
 
 ## Status
 
-Approved for full implementation by the human on 2026-08-23. Static implementation and independent reverification are complete. T08 human execution remains pending; Python execution and remote GitHub/PyPI actions remain human-controlled.
+Approved for full implementation by the human on 2026-08-23. Static implementation and independent reverification are complete. The human authorized agent-run local verification in `wespy` on 2026-08-23. That local suite completed with passing runtime tests and wheel validation, but static-quality, configured typing, source-distribution hygiene, lockfile, and forward-compatibility findings remain. No fixes were applied. Remote GitHub/PyPI actions remain human-controlled.
 
 ## Objective
 
@@ -154,7 +154,7 @@ The agent will not run these scripts. The human will run each documented command
 | T05 | Implement one example script per approved manufacturing plot specification | Human case specifications, T03 | Completed: plot_examples r02 |
 | T06 | Produce the palette gallery and complete the README | T03, T05 human-rendered exhibits | Completed statically: readme_gallery r02; human plot exhibits pending |
 | T07 | Add GitHub CI, release automation, and publication documentation | T04, T06 | Completed: ci_release |
-| T08 | Conduct human-run verification and prepare the release handoff | T04, T05, T06, T07 | Pending |
+| T08 | Conduct local verification and prepare the release handoff | T04, T05, T06, T07 | Agent-run suite completed with findings; fixes and reverification pending |
 | T09 | Characterize sequence/time-domain and faded-iteration references; create synthetic data | Human authorization | Completed |
 | T10 | Characterize fidelity and scatter/simulation references; create synthetic data | Human authorization | Completed (r02) |
 | T11 | Characterize readout-calibration/Rabi reference; create synthetic data | Human authorization | Completed (r02) |
@@ -162,8 +162,21 @@ The agent will not run these scripts. The human will run each documented command
 | T13 | Reverify the revised readout-calibration/Rabi artifacts | T11 r02, T12 | Completed: V02 pass |
 | T14 | Independently verify the complete static implementation | T01 through T07, V02 | Completed: V03 fail with three moderate corrections |
 | T15 | Reverify the corrected complete static implementation | T03/T05/T06 revisions, V03 | Completed: V04 pass |
+| T16 | Run pytest with branch coverage in `wespy` | T15, human execution authorization | Completed: V05 pass with deprecation warning |
+| T17 | Run Ruff, formatting, mypy, and local pre-commit checks in `wespy` | T15, human execution authorization | Completed: V06 fail |
+| T18 | Build and validate distributions and installed-wheel behavior in `wespy` | T15, human execution authorization | Completed: V07 blocked offline; host isolated build passed |
+| T19 | Reverify Twine, archives, and wheel behavior after the host's successful isolated build | T18/V07, host isolated build | Completed: V08 fail on sdist hygiene; wheel gates pass |
+| T20 | Diagnose static-quality failures without applying fixes | T17/V06 | Completed: V09 diagnosis |
 
-Task contracts are stored in `tasks/` beside this plan. No subagents are assigned.
+Task contracts are stored in `tasks/` beside this plan. T16 through T18 are assigned as shown for independent diagnosis; the host retains final synthesis and any later fix decisions.
+
+## Agent-run local verification outcome
+
+The `wespy` environment matched `requirement.txt`: pip's dry-run resolved the editable package and all `dev` and `examples` dependencies as already satisfied, and `pip check` found no broken requirements. T16 passed all 79 tests with 100% statement and branch coverage. Matplotlib 3.11.1 emitted three `ListedColormap(N=...)` deprecation warnings whose scheduled removal in Matplotlib 3.13 conflicts with the current broad `matplotlib<4` allowance.
+
+T17 failed static quality with five Ruff `I001` findings and six Ruff-format differences. T20 confirmed each `I001` is one surplus blank line after imports and that the formatting differences are layout-only. Configured strict mypy targeting Python 3.10 is blocked by NumPy 2.5.2's Python-3.12-only stub syntax before package analysis; the diagnostic Python 3.12 target passes all three package modules. Pre-commit configuration validation passed, but the configured mutating hooks were not executed during this diagnosis-only run.
+
+The host's standard isolated build succeeded after temporary approved access resolved declared Hatchling build dependencies, producing the wheel and source distribution. T19 confirmed Twine metadata, wheel contents, offline isolated wheel installation, import origin, package version, palette APIs, and Matplotlib colormap behavior. Source-distribution hygiene failed because `AGENT.md` is included. Separately, CI uses `uv sync --locked` while the repository has no `uv.lock`, so the checked-in CI configuration cannot pass its lock synchronization gate as written. No implementation, test, metadata, or CI fix was applied during verification.
 
 ## Acceptance criteria
 
