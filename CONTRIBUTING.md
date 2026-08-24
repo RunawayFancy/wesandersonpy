@@ -4,20 +4,20 @@ Thank you for helping improve `wesandersonpy`. By participating, you agree to fo
 
 ## Development setup
 
-Install Python 3.10 or newer and `uv`, then create the reproducible development environment after `uv.lock` has been generated and committed:
+Install Python 3.10 or newer and `uv`, then synchronize the reproducible development environment from the committed lock file:
 
 ```console
-uv sync --extra dev --extra examples
+uv sync --locked --extra dev --extra examples
 ```
 
-Until the initial lock file is generated, a maintainer can create it from the declared metadata:
+When dependency declarations intentionally change, regenerate the lock file and verify the locked environment before committing both changes:
 
 ```console
 uv lock
-uv sync --extra dev --extra examples
+uv sync --locked --extra dev --extra examples
 ```
 
-Do not hand-edit or fabricate `uv.lock`. A human maintainer must review lock-file changes and run all Python validation commands.
+Do not hand-edit or fabricate `uv.lock`. A human maintainer must review lock-file changes and run all validation commands before committing them.
 
 ## Quality checks
 

@@ -4,7 +4,6 @@ from __future__ import annotations
 
 from types import MappingProxyType
 
-
 # Keep the spelling, order, and hexadecimal text identical to the values in
 # ``reference/wesanderson-r/R/colors.R``. Public callers receive these values
 # through a second read-only mapping in :mod:`wesandersonpy.palettes`.

@@ -154,8 +154,7 @@ def test_register_colormaps_registers_all_canonical_names(
     assert registered == expected
     assert all(name in mpl.colormaps for name in expected)
     assert all(
-        isinstance(mpl.colormaps[name], LinearSegmentedColormap)
-        for name in expected
+        isinstance(mpl.colormaps[name], LinearSegmentedColormap) for name in expected
     )
 
 

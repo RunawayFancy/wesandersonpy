@@ -6,7 +6,6 @@ import pytest
 
 import wesandersonpy as wes
 
-
 ZISSOU_CONTINUOUS_SEED = (
     "#3a9ab2",
     "#6fb2c1",

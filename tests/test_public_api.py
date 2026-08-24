@@ -7,7 +7,6 @@ from importlib import metadata, resources
 import wesandersonpy as wes
 import wesandersonpy.palettes as palettes
 
-
 EXPECTED_EXPORTS = {
     "PALETTES",
     "__version__",

@@ -11,7 +11,6 @@ from matplotlib.colors import Colormap, LinearSegmentedColormap, ListedColormap,
 
 from ._palette_data import ALIASES, CONTINUOUS_SEEDS, PALETTE_DATA
 
-
 PaletteKind: TypeAlias = Literal["discrete", "continuous"]
 
 PALETTES: Mapping[str, tuple[str, ...]] = MappingProxyType(dict(PALETTE_DATA))

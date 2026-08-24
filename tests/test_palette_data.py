@@ -6,7 +6,6 @@ import pytest
 
 import wesandersonpy as wes
 
-
 EXPECTED_PALETTES = {
     "BottleRocket1": (
         "#A42820",

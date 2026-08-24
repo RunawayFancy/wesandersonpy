@@ -71,6 +71,11 @@ select = ["B", "E", "F", "I", "UP"]
 python_version = "3.10"
 strict = true
 files = ["src/wesandersonpy"]
+follow_imports_for_stubs = true
+
+[[tool.mypy.overrides]]
+module = ["numpy", "numpy.*"]
+follow_imports = "skip"
 
 [tool.pytest.ini_options]
 addopts = "--strict-config --strict-markers"
@@ -83,4 +88,3 @@ source = ["wesandersonpy"]
 [tool.coverage.report]
 show_missing = true
 skip_covered = true
-

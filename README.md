@@ -211,7 +211,7 @@ These five exhibits were rendered from the bundled synthetic fixtures, independe
 After installing the example dependencies, the human rendering commands are:
 
 ```console
-uv sync --extra examples
+uv sync --locked --extra examples
 uv run python examples/diagram_sequence_time_domain.py --data-dir examples/data/diagram_sequence --output examples/figures/generated/diagram_sequence_time_domain.png
 uv run python examples/fidelity_multi_parameter.py --data-dir examples/data/fidelity_multi_parameter --output examples/figures/generated/fidelity_multi_parameter.png
 uv run python examples/multiple_iterations_faded.py --input examples/data/multiple_iterations/iteration_populations.csv --output examples/figures/generated/multiple_iterations_faded.png
@@ -226,8 +226,7 @@ For each approved image, record the script path, the `wesandersonpy` version, th
 Create or synchronize the full contributor environment and run the project checks:
 
 ```console
-uv lock
-uv sync --extra dev --extra examples
+uv sync --locked --extra dev --extra examples
 uv run ruff format --check .
 uv run ruff check .
 uv run mypy src/wesandersonpy
@@ -236,7 +235,7 @@ uv run python -m build
 uv run twine check dist/*
 ```
 
-The initial `uv lock` command is needed only until a reviewed `uv.lock` exists; never hand-edit or fabricate the lock file. The human maintainer must run these Python commands and inspect the wheel and source-distribution contents before publishing. See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution rules, [CHANGELOG.md](CHANGELOG.md) for release history, [SECURITY.md](SECURITY.md) for private vulnerability reporting, and [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) for community expectations.
+The reviewed `uv.lock` is committed and CI installs from it with `--locked`. Run `uv lock` only after an intentional dependency-metadata change, review the resulting diff, and commit it with that change; never hand-edit or fabricate the lock file. The human maintainer must run these Python commands and inspect the wheel and source-distribution contents before publishing. See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution rules, [CHANGELOG.md](CHANGELOG.md) for release history, [SECURITY.md](SECURITY.md) for private vulnerability reporting, and [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) for community expectations.
 
 The API and packaging guidance follows the official [Matplotlib color API](https://matplotlib.org/stable/api/colors_api.html), [Matplotlib colormap creation guide](https://matplotlib.org/stable/users/explain/colors/colormap-manipulation.html), and [PyPA packaging tutorial](https://packaging.python.org/en/latest/tutorials/packaging-projects/). These technical references were last reviewed on 2026-08-23.
 
