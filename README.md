@@ -10,21 +10,23 @@ Wes Anderson-inspired color palettes for Python, with a small typed API and firs
 
 ## Installation
 
-The package supports Python 3.10 and newer. After the first PyPI release:
+The package supports Python 3.10 and newer. Install the current development version directly from GitHub:
+
+```console
+python -m pip install "wesandersonpy @ git+https://github.com/RunawayFancy/wesandersonpy.git@main"
+```
+
+After the first PyPI release, the stable version will be installable with:
 
 ```console
 python -m pip install wesandersonpy
 ```
 
-To install a GitHub checkout before release, replace `<owner>` after the canonical repository URL is assigned:
+For editable development, clone the repository and install the development and example dependencies:
 
 ```console
-python -m pip install "wesandersonpy @ git+https://github.com/<owner>/wesandersonpy.git"
-```
-
-For editable development from an existing local checkout:
-
-```console
+git clone https://github.com/RunawayFancy/wesandersonpy.git
+cd wesandersonpy
 python -m pip install -e ".[dev,examples]"
 ```
 
