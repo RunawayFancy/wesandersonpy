@@ -139,3 +139,4 @@ These rules apply to future host agents, subagents, test/verifier agents, and si
 2. When wrting markdown file, before a sentence finish, do no random change line in the .md file to make it easy for human to read. 
 3. To save tokens, when a new agent load and run a lot shell code in terminal, that agent should summaize the results for the future agent to use that infomation to avoid repetitively calling information as waste tokens. 
 4. Do not run all python files by agent. Python file should be run by human side and feedback will be send back to agent. So the agent need to give detialed instruction to the user that which python file need to run and what result they need to return. 
+5. Working under venv `wespy`. Use `conda activate wespy` and check pip `pip list` to see if the venv match the requirement. 
